@@ -1,0 +1,94 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+}
+
+.default {
+  background: var(--color-gray-100);
+  color: var(--color-gray-700);
+}
+
+.default .dot {
+  background: var(--color-gray-400);
+}
+
+.success {
+  background: var(--color-success-soft);
+  color: #047857;
+}
+
+.success .dot {
+  background: var(--color-success);
+}
+
+.warning {
+  background: var(--color-warning-soft);
+  color: #b45309;
+}
+
+.warning .dot {
+  background: var(--color-warning);
+}
+
+.danger {
+  background: var(--color-danger-soft);
+  color: #b91c1c;
+}
+
+.danger .dot {
+  background: var(--color-danger);
+}
+
+.info {
+  background: var(--color-info-soft);
+  color: #1d4ed8;
+}
+
+.info .dot {
+  background: var(--color-info);
+}
+
+.primary {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
+.primary .dot {
+  background: var(--color-primary);
+}
+
+.online {
+  composes: success;
+}
+
+.offline {
+  composes: default;
+}
+
+.charging {
+  composes: info;
+}
+
+.discharging {
+  composes: warning;
+}
+
+.maintenance {
+  composes: primary;
+}
+
+.critical {
+  composes: danger;
+}

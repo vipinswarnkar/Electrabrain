@@ -1,0 +1,126 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: var(--navbar-height);
+  padding: 0 var(--space-6);
+  background: var(--color-white);
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-gray-600);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.menuButton:hover {
+  background: var(--color-gray-100);
+}
+
+.collapseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-gray-500);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.collapseButton:hover {
+  background: var(--color-gray-100);
+  color: var(--color-gray-700);
+}
+
+.searchWrapper {
+  position: relative;
+  width: 280px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.iconButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-gray-600);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.iconButton:hover {
+  background: var(--color-gray-100);
+}
+
+.notificationDot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-danger);
+  border: 2px solid var(--color-white);
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border-color);
+  margin: 0 var(--space-2);
+}
+
+@media (max-width: 767px) {
+  .menuButton {
+    display: flex;
+  }
+
+  .collapseButton {
+    display: none;
+  }
+
+  .searchWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .searchWrapper {
+    width: 200px;
+  }
+}

@@ -1,0 +1,1 @@
+export { BatteryTable } from './BatteryTable';

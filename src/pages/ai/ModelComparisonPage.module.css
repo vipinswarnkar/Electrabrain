@@ -1,0 +1,148 @@
+.controlsCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  margin-bottom: 1rem;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.controlGroup label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gray-600);
+}
+
+.controlGroup select {
+  border: 1px solid var(--color-gray-300);
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  background: var(--color-white);
+  color: var(--color-gray-800);
+}
+
+.demoNote {
+  color: var(--color-gray-600);
+  font-size: 0.95rem;
+}
+
+.heroCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 1.4rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.11), rgba(14, 116, 144, 0.1));
+  border: 1px solid var(--color-gray-200);
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  margin: 0.25rem 0 0.45rem;
+  font-size: 1.45rem;
+}
+
+.heroText {
+  margin: 0;
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.heroStats {
+  display: grid;
+  gap: 0.7rem;
+  min-width: 220px;
+}
+
+.tableCard {
+  margin-bottom: 1rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.75rem 0.6rem;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.table th {
+  color: var(--color-gray-600);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gridThree {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.barList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 98px 1fr 56px;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.barTrack {
+  width: 100%;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: var(--color-gray-200);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-primary), #14b8a6);
+}
+
+@media (max-width: 920px) {
+  .controlsCard,
+  .heroCard,
+  .gridThree {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .heroStats {
+    min-width: initial;
+  }
+}

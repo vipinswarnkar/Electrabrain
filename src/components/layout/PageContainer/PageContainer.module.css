@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+}
+
+.narrow {
+  max-width: 720px;
+}
+
+.default {
+  max-width: none;
+}
+
+.full {
+  max-width: none;
+}
+
+.compact {
+  gap: var(--space-4);
+}
+
+.spacious {
+  gap: var(--space-8);
+}

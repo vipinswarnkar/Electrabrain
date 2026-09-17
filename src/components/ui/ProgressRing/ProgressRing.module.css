@@ -1,0 +1,56 @@
+.container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  transform: rotate(-90deg);
+}
+
+.track {
+  fill: none;
+  stroke: var(--color-gray-200);
+}
+
+.progress {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--transition-slow);
+}
+
+.label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.value {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+}
+
+.subLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+}
+
+.primary {
+  stroke: var(--color-primary);
+}
+
+.success {
+  stroke: var(--color-success);
+}
+
+.warning {
+  stroke: var(--color-warning);
+}
+
+.danger {
+  stroke: var(--color-danger);
+}

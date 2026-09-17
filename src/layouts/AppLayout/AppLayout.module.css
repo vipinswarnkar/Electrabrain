@@ -1,0 +1,43 @@
+.appLayout {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.mainWrapper {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  transition: margin-left var(--transition-base);
+}
+
+.mainWrapper.collapsed {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+.content {
+  padding: var(--space-6);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mainWrapper,
+  .mainWrapper.collapsed {
+    margin-left: 0;
+  }
+
+  .content {
+    padding: var(--space-4);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--z-sticky) - 1);
+    background: rgba(15, 23, 42, 0.4);
+  }
+}

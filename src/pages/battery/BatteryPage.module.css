@@ -1,0 +1,225 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin: 1.25rem 0;
+}
+
+.selectGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 10rem;
+  font-size: 0.9rem;
+  color: var(--color-gray-600);
+}
+
+.selectGroup select {
+  border: 1px solid var(--color-gray-300);
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  background: var(--color-white);
+  color: var(--color-gray-900);
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.summaryCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.summaryLabel {
+  font-size: 0.8rem;
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.panel {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 1.25rem;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.paginationStatus {
+  color: var(--color-gray-600);
+  font-size: 0.95rem;
+}
+
+.heroCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(14, 116, 144, 0.08));
+  border: 1px solid var(--color-gray-200);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.heroHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.heroText {
+  color: var(--color-gray-600);
+  margin: 0 0 0.8rem;
+  max-width: 44rem;
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--color-gray-600);
+  font-size: 0.95rem;
+}
+
+.gridTwo,
+.gridThree {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.gridTwo {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gridThree {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.metricGrid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  min-width: 320px;
+}
+
+.infoList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.infoItem span {
+  color: var(--color-gray-500);
+}
+
+.sensorList,
+.maintenanceList,
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sensorItem,
+.maintenanceItem,
+.liveRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 0.9rem;
+  background: var(--color-gray-50);
+}
+
+.sensorStatus {
+  text-transform: capitalize;
+  color: var(--color-gray-600);
+}
+
+.mutedText {
+  color: var(--color-gray-500);
+  font-size: 0.9rem;
+}
+
+.notesList p,
+.maintenanceItem p {
+  margin: 0.3rem 0 0;
+  color: var(--color-gray-600);
+}
+
+.maintenanceMeta,
+.liveMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 0.25rem;
+  color: var(--color-gray-600);
+}
+
+.healthSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.predictionFootnote {
+  margin-top: 0.9rem;
+  color: var(--color-gray-500);
+  font-size: 0.9rem;
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+@media (max-width: 920px) {
+  .gridTwo,
+  .gridThree {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCard {
+    flex-direction: column;
+  }
+
+  .metricGrid {
+    min-width: 0;
+  }
+}

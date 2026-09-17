@@ -1,0 +1,13 @@
+.link {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.numeric {
+  font-variant-numeric: tabular-nums;
+}

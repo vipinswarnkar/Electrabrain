@@ -1,0 +1,61 @@
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+.row1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.row3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+}
+.row4 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.tableCard {
+  background: var(--card-bg, #fff);
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow, 0 1px 2px rgba(0,0,0,0.04));
+}
+.tableHeader {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  text-align: left;
+  padding: 8px 6px;
+  border-bottom: 1px solid #f3f4f6;
+}
+.alertsCard {
+  background: var(--card-bg, #fff);
+  padding: 12px;
+  border-radius: 8px;
+}
+.alertList { list-style: none; padding: 0; margin: 0; }
+.alertList li { padding: 8px 0; border-bottom: 1px solid #f3f4f6; }
+.alertTitle { font-weight: 600; }
+.alertMsg { color: #6b7280; font-size: 0.95rem; }
+.alertMeta { color: #9ca3af; font-size: 0.85rem; }
+.systemCard { background: var(--card-bg, #fff); padding: 12px; border-radius: 8px; }
+.systemGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.modelPerf { display:flex; gap: 24px; align-items: center; }
+.modelLink { margin-left: auto; }

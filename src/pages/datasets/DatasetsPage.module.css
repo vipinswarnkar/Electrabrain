@@ -1,0 +1,129 @@
+.uploadCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 1.4rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.11), rgba(14, 116, 144, 0.1));
+  border: 1px solid var(--color-gray-200);
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  margin: 0.25rem 0 0.45rem;
+  font-size: 1.25rem;
+}
+
+.sectionText {
+  margin: 0;
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 280px;
+}
+
+.form input,
+.controlsCard input,
+.controlsCard select {
+  border: 1px solid var(--color-gray-300);
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  background: var(--color-white);
+  color: var(--color-gray-800);
+}
+
+.form button,
+.pagination button {
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.form button:disabled,
+.pagination button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.controlsCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  margin-bottom: 1rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.7rem 0.6rem;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.table th {
+  color: var(--color-gray-600);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.link {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.muted {
+  color: var(--color-gray-600);
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 920px) {
+  .uploadCard,
+  .controlsCard {
+    display: grid;
+  }
+
+  .form {
+    min-width: initial;
+  }
+}
