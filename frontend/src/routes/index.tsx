@@ -23,6 +23,7 @@ const MonitoringPage = lazy(() => import('@/pages/battery/MonitoringPage').then(
 const AlertsPage = lazy(() => import('@/pages/battery/AlertsPage').then((m) => ({ default: m.AlertsPage })));
 const PredictionsPage = lazy(() => import('@/pages/predictions/PredictionsPage').then((m) => ({ default: m.PredictionsPage })));
 const PredictionDetailPage = lazy(() => import('@/pages/predictions/PredictionDetailPage').then((m) => ({ default: m.PredictionDetailPage })));
+const LivePredictionDemoPage = lazy(() => import('@/pages/predictions/LivePredictionDemoPage').then((m) => ({ default: m.LivePredictionDemoPage })));
 const HealthAnalysisPage = lazy(() => import('@/pages/analytics/HealthAnalysisPage').then((m) => ({ default: m.HealthAnalysisPage })));
 const DegradationTrendsPage = lazy(() => import('@/pages/analytics/DegradationTrendsPage').then((m) => ({ default: m.DegradationTrendsPage })));
 const CycleAnalysisPage = lazy(() => import('@/pages/analytics/CycleAnalysisPage').then((m) => ({ default: m.CycleAnalysisPage })));
@@ -106,6 +107,10 @@ export const routes: RouteObject[] = [
               {
                 path: 'predictions/:batteryId',
                 element: <PredictionDetailPage />,
+              },
+              {
+                path: 'predictions/live-demo',
+                element: <LivePredictionDemoPage />,
               },
               {
                 path: 'models/ahrf',
