@@ -19,6 +19,7 @@ export interface BatteryService {
 export interface PredictionService {
   getPredictions(): Promise<PredictionResponse[]>;
   getPrediction(batteryId: string): Promise<PredictionResponse | null>;
+  runLivePrediction?(recentCycles: unknown[]): Promise<PredictionResponse | null>;
 }
 
 export interface ExplainabilityService {

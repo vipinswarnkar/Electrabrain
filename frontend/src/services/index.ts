@@ -13,6 +13,7 @@ import type {
 import { MOCK_ALERTS } from './mocks/batteryData.mock';
 import { mockBatteryService } from './mocks/batteryService.mock';
 import { mockPredictionService } from './mocks/predictionService.mock';
+import { livePredictionService } from './predictionService.live';
 import { mockExplainabilityData } from './mocks/explainability.mock';
 import { mockOptimizationResult } from './mocks/optimization.mock';
 import { mockModelComparisonData } from './mocks/modelComparison.mock';
@@ -71,7 +72,7 @@ export const mockReportService: ReportService = {
 
 /** Swap these exports when connecting to Express/FastAPI */
 export const batteryService: BatteryService = mockBatteryService;
-export const predictionService: PredictionService = mockPredictionService;
+export const predictionService: PredictionService = livePredictionService;
 export const explainabilityService: ExplainabilityService = mockExplainabilityService;
 export const modelService: ModelService = mockModelService;
 export const optimizationService: OptimizationService = mockOptimizationService;
