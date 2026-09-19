@@ -25,6 +25,7 @@ export const NAV_SECTIONS: NavSection[] = [
     title: 'AI & Predictions',
     items: [
       { id: 'predictions', label: 'Predictions', path: '/predictions', icon: 'Brain' },
+      { id: 'live-demo', label: 'Live Demo', path: '/predictions/live-demo', icon: 'Zap' },
       { id: 'ahrf', label: 'AHRF Model', path: '/models/ahrf', icon: 'GitBranch' },
       { id: 'explainability', label: 'Explainable AI', path: '/ai/explainability', icon: 'Sparkles' },
       { id: 'comparison', label: 'Model Comparison', path: '/ai/model-comparison', icon: 'BarChart3' },
@@ -67,6 +68,7 @@ export const PAGE_TITLES: Record<string, string> = {
   '/analytics/degradation': 'Degradation Trends',
   '/analytics/cycles': 'Cycle Analysis',
   '/predictions': 'Predictions',
+  '/predictions/live-demo': 'Live Prediction Demo',
   '/models/ahrf': 'AHRF Model',
   '/ai/explainability': 'Explainable AI',
   '/ai/model-comparison': 'Model Comparison',
