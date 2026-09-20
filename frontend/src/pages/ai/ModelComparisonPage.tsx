@@ -92,7 +92,7 @@ export function ModelComparisonPage() {
       </section>
 
       <section className={styles.tableCard}>
-        <ChartCard title="Comparison Table" subtitle="Mock metrics by model and target">
+        <ChartCard title="Comparison Table" subtitle="Real metrics: AHRF-v1/v2 vs Random Forest, evaluated on real held-out NASA batteries">
           <div className={styles.tableWrap}>
             <table className={styles.table}>
               <thead>
