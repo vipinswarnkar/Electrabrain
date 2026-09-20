@@ -1,14 +1,18 @@
 import type { PredictionService } from '@/services/types';
-import { mockPredictionService } from '@/services/mocks/predictionService.mock';
+import { REAL_PREDICTIONS } from '@/data/realBatteries';
 import { runLivePrediction, type LiveCycleInput } from '@/services/api/predictionService.live';
 
-// Real backend-connected PredictionService. getPredictions/getPrediction
-// still delegate to the mock -- FastAPI has no concept of a stored list
-// of batteries/predictions (that would need a database, out of scope for
-// this project). runLivePrediction is the one real, FastAPI-backed method.
+// Real backend-connected PredictionService.
+// getPredictions/getPrediction serve real AHRF-v1 model output, computed
+// against real NASA B0005/6/7/18 cycles (see ml/extract_multi_battery.py).
+// runLivePrediction calls FastAPI live, for the interactive demo page.
 export const livePredictionService: PredictionService = {
-  getPredictions: mockPredictionService.getPredictions,
-  getPrediction: mockPredictionService.getPrediction,
+  async getPredictions() {
+    return REAL_PREDICTIONS;
+  },
+  async getPrediction(batteryId: string) {
+    return REAL_PREDICTIONS.find((p) => p.batteryId === batteryId) ?? null;
+  },
 
   async runLivePrediction(recentCycles: unknown[]) {
     const result = await runLivePrediction(recentCycles as LiveCycleInput[]);

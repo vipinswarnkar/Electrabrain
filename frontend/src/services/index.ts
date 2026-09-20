@@ -11,7 +11,9 @@ import type {
   ReportService,
 } from '@/services/types';
 import { MOCK_ALERTS } from './mocks/batteryData.mock';
+import { REAL_ALERTS } from '@/data/realAlerts';
 import { mockBatteryService } from './mocks/batteryService.mock';
+import { realBatteryService } from './batteryService.real';
 import { mockPredictionService } from './mocks/predictionService.mock';
 import { livePredictionService } from './predictionService.live';
 import { mockExplainabilityData } from './mocks/explainability.mock';
@@ -58,9 +60,9 @@ export const mockExperimentService: ExperimentService = {
   },
 };
 
-export const mockAlertService: AlertService = {
+export const realAlertService: AlertService = {
   async getAlerts() {
-    return MOCK_ALERTS;
+    return REAL_ALERTS;
   },
 };
 
@@ -71,7 +73,7 @@ export const mockReportService: ReportService = {
 };
 
 /** Swap these exports when connecting to Express/FastAPI */
-export const batteryService: BatteryService = mockBatteryService;
+export const batteryService: BatteryService = realBatteryService;
 export const predictionService: PredictionService = livePredictionService;
 export const explainabilityService: ExplainabilityService = mockExplainabilityService;
 export const modelService: ModelService = mockModelService;
@@ -79,5 +81,5 @@ export const optimizationService: OptimizationService = mockOptimizationService;
 export const maintenanceService: MaintenanceService = mockMaintenanceService;
 export const datasetService: DatasetService = mockDatasetService;
 export const experimentService: ExperimentService = mockExperimentService;
-export const alertService: AlertService = mockAlertService;
+export const alertService: AlertService = realAlertService;
 export const reportService: ReportService = mockReportService;
