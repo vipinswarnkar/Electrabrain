@@ -55,7 +55,7 @@ export default function DashboardPage() {
             <LineChart
               data={DEGRADATION_SERIES as any}
               xKey="cycle"
-              series={[{ dataKey: 'actual', name: 'Actual' }, { dataKey: 'predicted', name: 'Predicted' }]}
+              series={[{ dataKey: 'actual', name: 'Actual', color: '#f97316' }, { dataKey: 'predicted', name: 'Predicted' }]}
               height={220}
             />
           </ChartCard>
