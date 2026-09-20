@@ -4,7 +4,8 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { ChartCard } from '@/components/ui/ChartCard';
 import { MetricCard } from '@/components/ui/MetricCard';
 import { modelService } from '@/services';
-import { mockModelComparisonData, type ComparisonTarget } from '@/services/mocks/modelComparison.mock';
+import { REAL_MODEL_COMPARISON } from '@/data/realModelComparison';
+import type { ComparisonTarget } from '@/services/mocks/modelComparison.mock';
 import styles from './ModelComparisonPage.module.css';
 
 type MetricKey = 'rmse' | 'mae' | 'r2';
@@ -33,7 +34,7 @@ export function ModelComparisonPage() {
   }, []);
 
   const comparisonRows = useMemo(() => {
-    return mockModelComparisonData.map((row) => ({
+    return REAL_MODEL_COMPARISON.map((row) => ({
       ...row,
       metrics: row.metrics[selectedTarget],
     }));
