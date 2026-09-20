@@ -1,0 +1,266 @@
+{
+  "B0005": [
+    {
+      "cycle": 6,
+      "SOC": 87.46135829407157,
+      "SOH": 88.04212205601253,
+      "RUL": 60.914110348956896,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=88.0%, RUL=61 cycles, SOC=87.5%). No action needed."
+    },
+    {
+      "cycle": 29,
+      "SOC": 89.43658899500667,
+      "SOH": 88.12940763849197,
+      "RUL": 51.15484703754437,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=88.1%, RUL=51 cycles, SOC=89.4%). No action needed."
+    },
+    {
+      "cycle": 52,
+      "SOC": 91.45642743518027,
+      "SOH": 86.99441891471238,
+      "RUL": 36.39863368691601,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=87.0%, RUL=36 cycles, SOC=91.5%). No action needed."
+    },
+    {
+      "cycle": 75,
+      "SOC": 62.24063303925486,
+      "SOH": 76.7389782805473,
+      "RUL": 32.53564564400338,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=76.7%, RUL=33 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 98,
+      "SOC": 40.674631778254216,
+      "SOH": 71.18626961051982,
+      "RUL": 33.17035256461379,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=71.2%, RUL=33 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 121,
+      "SOC": 30.808403705215824,
+      "SOH": 69.82370684429159,
+      "RUL": 34.094682025955436,
+      "status": "CRITICAL",
+      "recommendation": "Battery health is low (SOH=69.8%) and/or remaining life is short (RUL=34 cycles). Schedule replacement soon."
+    },
+    {
+      "cycle": 144,
+      "SOC": 21.25616795246217,
+      "SOH": 69.0730603495783,
+      "RUL": 33.75330518219991,
+      "status": "CRITICAL",
+      "recommendation": "Battery health is low (SOH=69.1%) and/or remaining life is short (RUL=34 cycles). Schedule replacement soon."
+    },
+    {
+      "cycle": 168,
+      "SOC": 19.93076363948034,
+      "SOH": 69.00131798818121,
+      "RUL": 34.66620593016263,
+      "status": "CRITICAL",
+      "recommendation": "Battery health is low (SOH=69.0%) and/or remaining life is short (RUL=35 cycles). Schedule replacement soon."
+    }
+  ],
+  "B0006": [
+    {
+      "cycle": 6,
+      "SOC": 97.98011382044714,
+      "SOH": 91.50110018854005,
+      "RUL": 50.74511843723655,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=91.5%, RUL=51 cycles, SOC=98.0%). No action needed."
+    },
+    {
+      "cycle": 29,
+      "SOC": 79.28798612313588,
+      "SOH": 89.83039815895665,
+      "RUL": 44.47182976081508,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=89.8%, RUL=44 cycles, SOC=79.3%). No action needed."
+    },
+    {
+      "cycle": 52,
+      "SOC": 60.768343075502266,
+      "SOH": 83.74894254260496,
+      "RUL": 37.475052141481356,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=83.7%, RUL=37 cycles, SOC=60.8%). No action needed."
+    },
+    {
+      "cycle": 75,
+      "SOC": 31.113058892365355,
+      "SOH": 72.21388238002783,
+      "RUL": 34.1291307942722,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=72.2%, RUL=34 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 98,
+      "SOC": 24.647887254071094,
+      "SOH": 70.5468252212167,
+      "RUL": 34.3998131899612,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=70.5%, RUL=34 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 121,
+      "SOC": 21.315137970417624,
+      "SOH": 69.52812770570266,
+      "RUL": 34.010842095515834,
+      "status": "CRITICAL",
+      "recommendation": "Battery health is low (SOH=69.5%) and/or remaining life is short (RUL=34 cycles). Schedule replacement soon."
+    },
+    {
+      "cycle": 144,
+      "SOC": 20.171939442368455,
+      "SOH": 69.00207567301686,
+      "RUL": 35.563197928050585,
+      "status": "CRITICAL",
+      "recommendation": "Battery health is low (SOH=69.0%) and/or remaining life is short (RUL=36 cycles). Schedule replacement soon."
+    },
+    {
+      "cycle": 168,
+      "SOC": 20.09403260567428,
+      "SOH": 68.99282975883665,
+      "RUL": 35.6505143880854,
+      "status": "CRITICAL",
+      "recommendation": "Battery health is low (SOH=69.0%) and/or remaining life is short (RUL=36 cycles). Schedule replacement soon."
+    }
+  ],
+  "B0007": [
+    {
+      "cycle": 6,
+      "SOC": 87.17700350677566,
+      "SOH": 88.22964694608599,
+      "RUL": 59.97362532996749,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=88.2%, RUL=60 cycles, SOC=87.2%). No action needed."
+    },
+    {
+      "cycle": 29,
+      "SOC": 97.86140031271556,
+      "SOH": 89.60014733143547,
+      "RUL": 43.65909027424478,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=89.6%, RUL=44 cycles, SOC=97.9%). No action needed."
+    },
+    {
+      "cycle": 52,
+      "SOC": 89.33145744697299,
+      "SOH": 88.07406412233514,
+      "RUL": 34.31560070561992,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=88.1%, RUL=34 cycles, SOC=89.3%). No action needed."
+    },
+    {
+      "cycle": 75,
+      "SOC": 65.9596961399817,
+      "SOH": 81.97589646591422,
+      "RUL": 28.634329553124637,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=82.0%, RUL=29 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 98,
+      "SOC": 48.1224950917172,
+      "SOH": 79.08172006477669,
+      "RUL": 29.571526841371927,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=79.1%, RUL=30 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 121,
+      "SOC": 41.58011879492457,
+      "SOH": 76.92984261749547,
+      "RUL": 30.072323981648097,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=76.9%, RUL=30 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 144,
+      "SOC": 27.506760662117635,
+      "SOH": 74.59903609549343,
+      "RUL": 33.14734574762514,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=74.6%, RUL=33 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 168,
+      "SOC": 27.94751090976534,
+      "SOH": 74.33830337413183,
+      "RUL": 34.80050825162935,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=74.3%, RUL=35 cycles). Plan maintenance within the next scheduling window."
+    }
+  ],
+  "B0018": [
+    {
+      "cycle": 6,
+      "SOC": 87.68316701156202,
+      "SOH": 90.16919478268436,
+      "RUL": 45.28159427957931,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=90.2%, RUL=45 cycles, SOC=87.7%). No action needed."
+    },
+    {
+      "cycle": 24,
+      "SOC": 75.06598595345676,
+      "SOH": 86.75147304702044,
+      "RUL": 41.93520475360941,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=86.8%, RUL=42 cycles, SOC=75.1%). No action needed."
+    },
+    {
+      "cycle": 42,
+      "SOC": 64.86426500445408,
+      "SOH": 80.80888060013874,
+      "RUL": 36.345036671695645,
+      "status": "HEALTHY",
+      "recommendation": "Battery is within normal operating range (SOH=80.8%, RUL=36 cycles, SOC=64.9%). No action needed."
+    },
+    {
+      "cycle": 60,
+      "SOC": 51.835699091417474,
+      "SOH": 77.88076517825469,
+      "RUL": 35.571955966757976,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=77.9%, RUL=36 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 78,
+      "SOC": 34.783214511937054,
+      "SOH": 70.79013627778366,
+      "RUL": 34.95734799939727,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=70.8%, RUL=35 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 96,
+      "SOC": 27.02999523959629,
+      "SOH": 71.17433644634166,
+      "RUL": 34.699078444775054,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=71.2%, RUL=35 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 114,
+      "SOC": 28.29523860090795,
+      "SOH": 70.22147619789267,
+      "RUL": 34.73462326390475,
+      "status": "WARNING",
+      "recommendation": "Battery is degrading (SOH=70.2%, RUL=35 cycles). Plan maintenance within the next scheduling window."
+    },
+    {
+      "cycle": 132,
+      "SOC": 24.488518277727188,
+      "SOH": 69.5356106454363,
+      "RUL": 34.59946522620762,
+      "status": "CRITICAL",
+      "recommendation": "Battery health is low (SOH=69.5%) and/or remaining life is short (RUL=35 cycles). Schedule replacement soon."
+    }
+  ]
+}

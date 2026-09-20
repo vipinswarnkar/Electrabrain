@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 test_load.py
 test_predict.py
+extract_multi_battery.py
