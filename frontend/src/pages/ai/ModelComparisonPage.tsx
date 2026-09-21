@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { ChartCard } from '@/components/ui/ChartCard';
 import { MetricCard } from '@/components/ui/MetricCard';
-import { modelService } from '@/services';
-import { REAL_MODEL_COMPARISON } from '@/data/realModelComparison';
+import { getComparisonRows, getComparisonNote } from '@/data/modelComparisonV2';
 import type { ComparisonTarget } from '@/services/mocks/modelComparison.mock';
 import styles from './ModelComparisonPage.module.css';
 
@@ -19,26 +18,8 @@ const TARGET_LABELS: Record<ComparisonTarget, string> = {
 export function ModelComparisonPage() {
   const [selectedTarget, setSelectedTarget] = useState<ComparisonTarget>('SOH');
 
-  useEffect(() => {
-    let active = true;
-
-    modelService.getModelMetrics().then(() => {
-      if (active) {
-        // Mock service already provides the model comparison dataset used by the page.
-      }
-    });
-
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  const comparisonRows = useMemo(() => {
-    return REAL_MODEL_COMPARISON.map((row) => ({
-      ...row,
-      metrics: row.metrics[selectedTarget],
-    }));
-  }, [selectedTarget]);
+  const comparisonRows = useMemo(() => getComparisonRows(selectedTarget), [selectedTarget]);
+  const note = useMemo(() => getComparisonNote(selectedTarget), [selectedTarget]);
 
   const bestModel = useMemo(() => {
     return [...comparisonRows].sort((a, b) => {
@@ -49,17 +30,25 @@ export function ModelComparisonPage() {
     })[0];
   }, [comparisonRows]);
 
-  const metricSeries = (metric: MetricKey) =>
-    comparisonRows.map((row) => ({
-      label: row.name,
-      value: row.metrics[metric],
-    }));
+  // Bar width scaled RELATIVE to the max value in this series -- not a
+  // fixed multiplier, since real RMSE/MAE/R2 values span very different
+  // ranges depending on target. Negative values (possible for R2) are
+  // clamped to a thin visible sliver rather than a negative width.
+  const metricSeries = (metric: MetricKey, higherIsBetter: boolean) => {
+    const values = comparisonRows.map((row) => row.metrics[metric]);
+    const maxAbs = Math.max(...values.map((v) => Math.abs(v)), 0.0001);
+    return comparisonRows.map((row) => {
+      const value = row.metrics[metric];
+      const widthPct = value < 0 ? 4 : Math.max(4, (Math.abs(value) / maxAbs) * 100);
+      return { label: row.name, value, widthPct };
+    }).sort((a, b) => (higherIsBetter ? b.value - a.value : a.value - b.value));
+  };
 
   return (
     <PageContainer size="full" spacing="spacious">
       <PageHeader
         title="Model Comparison"
-        subtitle="Demo metrics comparison for candidate regression models"
+        subtitle="Real metrics comparing candidate regression models against the production AHRF model"
         breadcrumbs={[{ label: 'AI & Predictions', path: '/predictions' }, { label: 'Model Comparison' }]}
       />
 
@@ -72,16 +61,15 @@ export function ModelComparisonPage() {
             <option value="RUL">RUL</option>
           </select>
         </div>
-        <div className={styles.demoNote}>Demo data only — not a verified benchmark.</div>
+        <div className={styles.demoNote}>{note}</div>
       </section>
 
       <section className={styles.heroCard}>
         <div>
           <p className={styles.eyebrow}>Best Model Summary</p>
-          <h2 className={styles.heroTitle}>Current demo ranking for {TARGET_LABELS[selectedTarget]}</h2>
+          <h2 className={styles.heroTitle}>Real ranking for {TARGET_LABELS[selectedTarget]}</h2>
           <p className={styles.heroText}>
-            The ranking below is based on the supplied mock experiment data and is shown as a demonstration view rather than a claim of
-            real-world superiority.
+            Ranked by real cross-validated/held-out performance -- not a demonstration or illustrative ordering.
           </p>
         </div>
         <div className={styles.heroStats}>
@@ -92,7 +80,7 @@ export function ModelComparisonPage() {
       </section>
 
       <section className={styles.tableCard}>
-        <ChartCard title="Comparison Table" subtitle="Real metrics: AHRF-v1/v2 vs Random Forest, evaluated on real held-out NASA batteries">
+        <ChartCard title="Comparison Table" subtitle={`Real metrics for ${comparisonRows.length} models on ${TARGET_LABELS[selectedTarget]}`}>
           <div className={styles.tableWrap}>
             <table className={styles.table}>
               <thead>
@@ -119,13 +107,13 @@ export function ModelComparisonPage() {
       </section>
 
       <section className={styles.gridThree}>
-        <ChartCard title="RMSE Bar Chart" subtitle="Lower is better">
+        <ChartCard title="RMSE Bar Chart" subtitle="Lower is better -- bars scaled relative to the worst model in this set">
           <div className={styles.barList}>
-            {metricSeries('rmse').map((item) => (
+            {metricSeries('rmse', false).map((item) => (
               <div key={item.label} className={styles.barRow}>
                 <span>{item.label}</span>
                 <div className={styles.barTrack}>
-                  <div className={styles.barFill} style={{ width: `${Math.min(100, item.value * 140)}%` }} />
+                  <div className={styles.barFill} style={{ width: `${item.widthPct}%` }} />
                 </div>
                 <strong>{item.value.toFixed(3)}</strong>
               </div>
@@ -133,13 +121,13 @@ export function ModelComparisonPage() {
           </div>
         </ChartCard>
 
-        <ChartCard title="MAE Bar Chart" subtitle="Lower is better">
+        <ChartCard title="MAE Bar Chart" subtitle="Lower is better -- bars scaled relative to the worst model in this set">
           <div className={styles.barList}>
-            {metricSeries('mae').map((item) => (
+            {metricSeries('mae', false).map((item) => (
               <div key={item.label} className={styles.barRow}>
                 <span>{item.label}</span>
                 <div className={styles.barTrack}>
-                  <div className={styles.barFill} style={{ width: `${Math.min(100, item.value * 140)}%` }} />
+                  <div className={styles.barFill} style={{ width: `${item.widthPct}%` }} />
                 </div>
                 <strong>{item.value.toFixed(3)}</strong>
               </div>
@@ -147,13 +135,13 @@ export function ModelComparisonPage() {
           </div>
         </ChartCard>
 
-        <ChartCard title="R² Bar Chart" subtitle="Higher is better">
+        <ChartCard title="R² Bar Chart" subtitle="Higher is better -- negative values shown as a thin bar with the real (negative) number">
           <div className={styles.barList}>
-            {metricSeries('r2').map((item) => (
+            {metricSeries('r2', true).map((item) => (
               <div key={item.label} className={styles.barRow}>
                 <span>{item.label}</span>
                 <div className={styles.barTrack}>
-                  <div className={styles.barFill} style={{ width: `${Math.min(100, item.value * 110)}%` }} />
+                  <div className={styles.barFill} style={{ width: `${item.widthPct}%` }} />
                 </div>
                 <strong>{item.value.toFixed(3)}</strong>
               </div>

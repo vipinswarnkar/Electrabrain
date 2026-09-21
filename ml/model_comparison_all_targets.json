@@ -1,0 +1,155 @@
+{
+  "soh": [
+    {
+      "id": "gradient_boosting",
+      "name": "Gradient Boosting",
+      "rmse": 2.3423,
+      "mae": 2.1062,
+      "r2": -3.448
+    },
+    {
+      "id": "decision_tree",
+      "name": "Decision Tree",
+      "rmse": 2.4743,
+      "mae": 2.1898,
+      "r2": -3.9638
+    },
+    {
+      "id": "random_forest",
+      "name": "Random Forest",
+      "rmse": 2.6044,
+      "mae": 2.3736,
+      "r2": -4.4994
+    },
+    {
+      "id": "linear_regression",
+      "name": "Linear Regression",
+      "rmse": 2.6406,
+      "mae": 2.5266,
+      "r2": -4.6535
+    },
+    {
+      "id": "ahrf_v1",
+      "name": "AHRF-v1",
+      "rmse": 2.9377,
+      "mae": 2.7287,
+      "r2": -5.997
+    },
+    {
+      "id": "ahrf_v2",
+      "name": "AHRF-v2",
+      "rmse": 2.9495,
+      "mae": 2.744,
+      "r2": -6.0536
+    },
+    {
+      "id": "polynomial_regression",
+      "name": "Polynomial Regression",
+      "rmse": 4.6351,
+      "mae": 4.5302,
+      "r2": -16.4188
+    }
+  ],
+  "soc": [
+    {
+      "id": "gradient_boosting",
+      "name": "Gradient Boosting",
+      "rmse": 7.8704,
+      "mae": 6.8869,
+      "r2": -1.7219
+    },
+    {
+      "id": "decision_tree",
+      "name": "Decision Tree",
+      "rmse": 8.7983,
+      "mae": 7.1377,
+      "r2": -2.4015
+    },
+    {
+      "id": "random_forest",
+      "name": "Random Forest",
+      "rmse": 8.9131,
+      "mae": 7.957,
+      "r2": -2.4908
+    },
+    {
+      "id": "ahrf_v1",
+      "name": "AHRF-v1",
+      "rmse": 11.5858,
+      "mae": 10.7039,
+      "r2": -4.8982
+    },
+    {
+      "id": "ahrf_v2",
+      "name": "AHRF-v2",
+      "rmse": 11.6915,
+      "mae": 10.8179,
+      "r2": -5.0064
+    },
+    {
+      "id": "linear_regression",
+      "name": "Linear Regression",
+      "rmse": 16.1107,
+      "mae": 15.238,
+      "r2": -10.4052
+    },
+    {
+      "id": "polynomial_regression",
+      "name": "Polynomial Regression",
+      "rmse": 23.9921,
+      "mae": 23.3317,
+      "r2": -24.2937
+    }
+  ],
+  "rul": [
+    {
+      "id": "decision_tree",
+      "name": "Decision Tree",
+      "rmse": 0.0,
+      "mae": 0.0,
+      "r2": 1.0
+    },
+    {
+      "id": "gradient_boosting",
+      "name": "Gradient Boosting",
+      "rmse": 0.0111,
+      "mae": 0.0071,
+      "r2": 0.0
+    },
+    {
+      "id": "ahrf_v1",
+      "name": "AHRF-v1",
+      "rmse": 0.6878,
+      "mae": 0.6663,
+      "r2": 0.0
+    },
+    {
+      "id": "ahrf_v2",
+      "name": "AHRF-v2",
+      "rmse": 0.7458,
+      "mae": 0.7231,
+      "r2": 0.0
+    },
+    {
+      "id": "random_forest",
+      "name": "Random Forest",
+      "rmse": 1.8286,
+      "mae": 1.7728,
+      "r2": 0.0
+    },
+    {
+      "id": "polynomial_regression",
+      "name": "Polynomial Regression",
+      "rmse": 5.7203,
+      "mae": 5.6609,
+      "r2": 0.0
+    },
+    {
+      "id": "linear_regression",
+      "name": "Linear Regression",
+      "rmse": 11.3222,
+      "mae": 11.2059,
+      "r2": 0.0
+    }
+  ]
+}
