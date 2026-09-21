@@ -1,0 +1,51 @@
+[
+  {
+    "id": "gradient_boosting",
+    "name": "Gradient Boosting",
+    "rmse": 2.3423,
+    "mae": 2.1062,
+    "r2": -3.448
+  },
+  {
+    "id": "decision_tree",
+    "name": "Decision Tree",
+    "rmse": 2.4743,
+    "mae": 2.1898,
+    "r2": -3.9638
+  },
+  {
+    "id": "ahrf_v1",
+    "name": "AHRF-v1",
+    "rmse": 2.6957,
+    "mae": 2.4647,
+    "r2": -4.8919
+  },
+  {
+    "id": "ahrf_v2",
+    "name": "AHRF-v2",
+    "rmse": 2.744,
+    "mae": 2.5176,
+    "r2": -5.1047
+  },
+  {
+    "id": "linear_regression",
+    "name": "Linear Regression",
+    "rmse": 2.6406,
+    "mae": 2.5266,
+    "r2": -4.6535
+  },
+  {
+    "id": "random_forest",
+    "name": "Random Forest",
+    "rmse": 2.9956,
+    "mae": 2.7967,
+    "r2": -6.2756
+  },
+  {
+    "id": "polynomial_regression",
+    "name": "Polynomial Regression",
+    "rmse": 4.6351,
+    "mae": 4.5302,
+    "r2": -16.4188
+  }
+]
