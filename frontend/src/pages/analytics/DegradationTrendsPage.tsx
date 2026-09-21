@@ -35,28 +35,28 @@ export function DegradationTrendsPage() {
 
       <section className={styles.gridTwo}>
         <ChartCard title="SOH vs cycle" subtitle="State-of-health decline across use cycles">
-          <LineChart data={data} xKey="cycle" series={[{ dataKey: 'soh', name: 'SOH', color: '#4f46e5' }]} height={240} />
+          <LineChart data={data as any} xKey="cycle" series={[{ dataKey: 'soh', name: 'SOH', color: '#4f46e5' }]} height={240} />
         </ChartCard>
         <ChartCard title="Capacity vs cycle" subtitle="Capacity fade trajectory">
-          <LineChart data={data} xKey="cycle" series={[{ dataKey: 'capacity', name: 'Capacity', color: '#0f766e' }]} height={240} />
+          <LineChart data={data as any} xKey="cycle" series={[{ dataKey: 'capacity', name: 'Capacity', color: '#0f766e' }]} height={240} />
         </ChartCard>
       </section>
 
       <section className={styles.gridTwo}>
         <ChartCard title="Resistance vs cycle" subtitle="Internal resistance growth (real impedance test data)">
-          <LineChart data={data} xKey="cycle" series={[{ dataKey: 'resistance', name: 'Resistance', color: '#dc2626' }]} height={240} />
+          <LineChart data={data as any} xKey="cycle" series={[{ dataKey: 'resistance', name: 'Resistance', color: '#dc2626' }]} height={240} />
         </ChartCard>
         <ChartCard title="Temperature vs cycle" subtitle="Thermal stress over the operating life">
-          <LineChart data={data} xKey="cycle" series={[{ dataKey: 'temperature', name: 'Temperature', color: '#f59e0b' }]} height={240} />
+          <LineChart data={data as any} xKey="cycle" series={[{ dataKey: 'temperature', name: 'Temperature', color: '#f59e0b' }]} height={240} />
         </ChartCard>
       </section>
 
       <section className={styles.gridTwo}>
         <ChartCard title="Voltage vs cycle" subtitle="Cell voltage under nominal discharge conditions">
-          <LineChart data={data} xKey="cycle" series={[{ dataKey: 'voltage', name: 'Voltage', color: '#2563eb' }]} height={240} />
+          <LineChart data={data as any} xKey="cycle" series={[{ dataKey: 'voltage', name: 'Voltage', color: '#2563eb' }]} height={240} />
         </ChartCard>
         <ChartCard title="Degradation rate" subtitle="Acceleration of capacity loss per cycle">
-          <LineChart data={data} xKey="cycle" series={[{ dataKey: 'degradationRate', name: 'Rate', color: '#7c3aed' }]} height={240} />
+          <LineChart data={data as any} xKey="cycle" series={[{ dataKey: 'degradationRate', name: 'Rate', color: '#7c3aed' }]} height={240} />
         </ChartCard>
       </section>
     </PageContainer>

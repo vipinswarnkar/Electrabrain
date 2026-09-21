@@ -35,29 +35,29 @@ export function CycleAnalysisPage() {
 
       <section className={styles.gridTwo}>
         <ChartCard title="Capacity vs cycle" subtitle="Cycle-by-cycle capacity retention">
-          <LineChart data={data} xKey="cycleNumber" series={[{ dataKey: 'capacity', name: 'Capacity', color: '#4f46e5' }]} height={240} />
+          <LineChart data={data as any} xKey="cycleNumber" series={[{ dataKey: 'capacity', name: 'Capacity', color: '#4f46e5' }]} height={240} />
         </ChartCard>
         <ChartCard title="Voltage vs cycle" subtitle="Nominal pack voltage trend">
-          <LineChart data={data} xKey="cycleNumber" series={[{ dataKey: 'voltage', name: 'Voltage', color: '#0f766e' }]} height={240} />
+          <LineChart data={data as any} xKey="cycleNumber" series={[{ dataKey: 'voltage', name: 'Voltage', color: '#0f766e' }]} height={240} />
         </ChartCard>
       </section>
 
       <section className={styles.gridTwo}>
         <ChartCard title="Current vs cycle" subtitle="Charge/discharge current trend">
-          <LineChart data={data} xKey="cycleNumber" series={[{ dataKey: 'current', name: 'Current', color: '#f59e0b' }]} height={240} />
+          <LineChart data={data as any} xKey="cycleNumber" series={[{ dataKey: 'current', name: 'Current', color: '#f59e0b' }]} height={240} />
         </ChartCard>
         <ChartCard title="Temperature vs cycle" subtitle="Thermal response throughout the cycle sequence">
-          <LineChart data={data} xKey="cycleNumber" series={[{ dataKey: 'temperature', name: 'Temperature', color: '#dc2626' }]} height={240} />
+          <LineChart data={data as any} xKey="cycleNumber" series={[{ dataKey: 'temperature', name: 'Temperature', color: '#dc2626' }]} height={240} />
         </ChartCard>
       </section>
 
       <section className={styles.gridTwo}>
         <ChartCard title="Energy vs cycle" subtitle="Real delivered energy, integrated from V x I over time">
-          <LineChart data={data} xKey="cycleNumber" series={[{ dataKey: 'energy', name: 'Energy', color: '#2563eb' }]} height={240} />
+          <LineChart data={data as any} xKey="cycleNumber" series={[{ dataKey: 'energy', name: 'Energy', color: '#2563eb' }]} height={240} />
         </ChartCard>
         <ChartCard title="Efficiency & duration" subtitle="Real cycle efficiency and duration trend">
           <LineChart
-            data={data}
+            data={data as any}
             xKey="cycleNumber"
             series={[
               { dataKey: 'efficiency', name: 'Efficiency', color: '#7c3aed' },

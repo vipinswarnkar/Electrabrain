@@ -63,7 +63,7 @@ export function HealthAnalysisPage() {
       <section className={styles.gridTwo}>
         <ChartCard title="Capacity & retention" subtitle="Capacity trajectory vs retained capacity">
           <AreaChart
-            data={health}
+            data={health as any}
             xKey="cycle"
             series={[
               { dataKey: 'capacity', name: 'Capacity', color: '#4f46e5' },
@@ -74,7 +74,7 @@ export function HealthAnalysisPage() {
         </ChartCard>
         <ChartCard title="Resistance & temperature" subtitle="Electrochemical degradation indicators (real impedance test data)">
           <LineChart
-            data={health}
+            data={health as any}
             xKey="cycle"
             series={[
               { dataKey: 'internalResistance', name: 'Internal resistance', color: '#dc2626' },

@@ -1,3 +1,4 @@
+import type { OptimizationResult } from '@/types';
 import type {
   BatteryService,
   PredictionService,
@@ -10,14 +11,10 @@ import type {
   AlertService,
   ReportService,
 } from '@/services/types';
-import { MOCK_ALERTS } from './mocks/batteryData.mock';
 import { REAL_ALERTS } from '@/data/realAlerts';
-import { mockBatteryService } from './mocks/batteryService.mock';
 import { realBatteryService } from './batteryService.real';
-import { mockPredictionService } from './mocks/predictionService.mock';
 import { livePredictionService } from './predictionService.live';
 import { mockExplainabilityData } from './mocks/explainability.mock';
-import { mockOptimizationResult } from './mocks/optimization.mock';
 import realOptimizationResult from '@/data/optimization_results.json';
 import { mockModelComparisonData } from './mocks/modelComparison.mock';
 import { mockDatasetService } from './mocks/datasetService.mock';
