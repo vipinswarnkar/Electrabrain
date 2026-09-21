@@ -18,6 +18,7 @@ import { mockPredictionService } from './mocks/predictionService.mock';
 import { livePredictionService } from './predictionService.live';
 import { mockExplainabilityData } from './mocks/explainability.mock';
 import { mockOptimizationResult } from './mocks/optimization.mock';
+import realOptimizationResult from '@/data/optimization_results.json';
 import { mockModelComparisonData } from './mocks/modelComparison.mock';
 import { mockDatasetService } from './mocks/datasetService.mock';
 
@@ -41,9 +42,9 @@ export const mockModelService: ModelService = {
   },
 };
 
-export const mockOptimizationService: OptimizationService = {
+export const realOptimizationService: OptimizationService = {
   async getOptimizationResult() {
-    return mockOptimizationResult;
+    return realOptimizationResult as unknown as OptimizationResult;
   },
 };
 
@@ -77,7 +78,7 @@ export const batteryService: BatteryService = realBatteryService;
 export const predictionService: PredictionService = livePredictionService;
 export const explainabilityService: ExplainabilityService = mockExplainabilityService;
 export const modelService: ModelService = mockModelService;
-export const optimizationService: OptimizationService = mockOptimizationService;
+export const optimizationService: OptimizationService = realOptimizationService;
 export const maintenanceService: MaintenanceService = mockMaintenanceService;
 export const datasetService: DatasetService = mockDatasetService;
 export const experimentService: ExperimentService = mockExperimentService;
