@@ -6,3 +6,4 @@ test_predict.py
 extract_multi_battery.py
 compare_models.py
 extract_analytics.py
+extract_shap.py
