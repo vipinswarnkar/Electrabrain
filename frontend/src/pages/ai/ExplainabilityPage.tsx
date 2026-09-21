@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { ChartCard } from '@/components/ui/ChartCard';
 import { MetricCard } from '@/components/ui/MetricCard';
-import { batteryService, explainabilityService } from '@/services';
-import type { Battery, SHAPExplanation } from '@/types';
+import shapResults from '@/data/shap_results.json';
 import styles from './ExplainabilityPage.module.css';
 
 type TargetOption = 'SOC' | 'SOH' | 'RUL';
@@ -15,67 +14,41 @@ const TARGET_LABELS: Record<TargetOption, string> = {
   RUL: 'Remaining Useful Life',
 };
 
+interface ShapFeature {
+  name: string;
+  importance: number;
+  value?: number;
+}
+
+interface PerBatteryLocal {
+  localFeatures: ShapFeature[];
+  outputValue: number;
+  cycle: number;
+}
+
+interface ShapResult {
+  globalFeatures: ShapFeature[];
+  baseValue: number;
+  perBattery: Record<string, PerBatteryLocal>;
+}
+
+const RESULTS = shapResults as Record<'soc' | 'soh' | 'rul', ShapResult>;
+
 export function ExplainabilityPage() {
-  const [batteries, setBatteries] = useState<Battery[]>([]);
-  const [selectedBatteryId, setSelectedBatteryId] = useState('battery-001');
-  const [selectedCycle, setSelectedCycle] = useState(128);
   const [selectedTarget, setSelectedTarget] = useState<TargetOption>('SOH');
-  const [explanation, setExplanation] = useState<SHAPExplanation | null>(null);
+  const targetResult = RESULTS[selectedTarget.toLowerCase() as 'soc' | 'soh' | 'rul'];
+  const availableBatteries = Object.keys(targetResult.perBattery);
+  const [selectedBatteryId, setSelectedBatteryId] = useState(availableBatteries[0]);
 
-  useEffect(() => {
-    let active = true;
-
-    batteryService.getBatteries().then((items) => {
-      if (!active) return;
-      setBatteries(items);
-      if (items.length > 0) {
-        setSelectedBatteryId(items[0].id);
-        setSelectedCycle(items[0].cycleCount);
-      }
-    });
-
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    let active = true;
-
-    explainabilityService.getSHAPExplanation(selectedBatteryId, selectedTarget, selectedCycle).then((data) => {
-      if (active) {
-        setExplanation(data);
-      }
-    });
-
-    return () => {
-      active = false;
-    };
-  }, [selectedBatteryId, selectedCycle, selectedTarget]);
-
-  const selectedBattery = useMemo(
-    () => batteries.find((battery) => battery.id === selectedBatteryId) ?? batteries[0] ?? null,
-    [batteries, selectedBatteryId],
-  );
-
-  const cycleOptions = useMemo(() => {
-    if (!selectedBattery) return [120, 121, 122];
-    return [Math.max(1, selectedBattery.cycleCount - 2), selectedBattery.cycleCount - 1, selectedBattery.cycleCount];
-  }, [selectedBattery]);
-
-  const positiveFeatures = useMemo(() => {
-    return (explanation?.localFeatures ?? []).filter((feature) => (feature.value ?? 0) > 0).slice(0, 3);
-  }, [explanation]);
-
-  const negativeFeatures = useMemo(() => {
-    return (explanation?.localFeatures ?? []).filter((feature) => (feature.value ?? 0) < 0).slice(0, 3);
-  }, [explanation]);
+  const local = targetResult.perBattery[selectedBatteryId] ?? targetResult.perBattery[availableBatteries[0]];
+  const positiveFeatures = local.localFeatures.filter((f) => (f.value ?? 0) > 0).slice(0, 3);
+  const negativeFeatures = local.localFeatures.filter((f) => (f.value ?? 0) < 0).slice(0, 3);
 
   return (
     <PageContainer size="full" spacing="spacious">
       <PageHeader
         title="Explainable AI"
-        subtitle="Mock SHAP-style explanations for research storytelling and UI integration"
+        subtitle="Real SHAP feature-attribution values, computed from the actual trained AHRF-v1 model"
         breadcrumbs={[{ label: 'AI & Predictions', path: '/predictions' }, { label: 'Explainable AI' }]}
       />
 
@@ -83,20 +56,8 @@ export function ExplainabilityPage() {
         <div className={styles.controlGroup}>
           <label htmlFor="battery">Battery</label>
           <select id="battery" value={selectedBatteryId} onChange={(event) => setSelectedBatteryId(event.target.value)}>
-            {batteries.map((battery) => (
-              <option key={battery.id} value={battery.id}>
-                {battery.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className={styles.controlGroup}>
-          <label htmlFor="cycle">Cycle</label>
-          <select id="cycle" value={selectedCycle} onChange={(event) => setSelectedCycle(Number(event.target.value))}>
-            {cycleOptions.map((cycle) => (
-              <option key={cycle} value={cycle}>
-                Cycle {cycle}
-              </option>
+            {availableBatteries.map((id) => (
+              <option key={id} value={id}>{id}</option>
             ))}
           </select>
         </div>
@@ -113,45 +74,49 @@ export function ExplainabilityPage() {
       <section className={styles.heroCard}>
         <div>
           <p className={styles.eyebrow}>Explanation Overview</p>
-          <h2 className={styles.heroTitle}>Research-oriented SHAP walkthrough</h2>
+          <h2 className={styles.heroTitle}>Real SHAP TreeExplainer output</h2>
           <p className={styles.heroText}>
-            This page illustrates how feature-attribution explanations could be presented for the AHRF workflow. The values are mock
-            placeholders and are not connected to a live Python SHAP model.
+            These values come from running SHAP's TreeExplainer on the actual trained {selectedTarget} model
+            (via its underlying real RandomForestRegressor), against real engineered features from real
+            NASA battery cycle data. Not illustrative -- genuine attribution values.
           </p>
         </div>
         <div className={styles.heroStats}>
-          <MetricCard label="Battery" value={selectedBattery?.name ?? 'Loading'} />
+          <MetricCard label="Battery" value={selectedBatteryId} />
           <MetricCard label="Target" value={TARGET_LABELS[selectedTarget]} />
-          <MetricCard label="Cycle" value={`C${selectedCycle}`} />
+          <MetricCard label="Cycle" value={`C${local.cycle}`} />
         </div>
       </section>
 
       <section className={styles.gridTwo}>
-        <ChartCard title="Global Feature Importance" subtitle="Relative contribution of each feature to the model output">
+        <ChartCard title="Global Feature Importance" subtitle="Real mean |SHAP value| across checkpoints from all 4 batteries">
           <div className={styles.barList}>
-            {(explanation?.globalFeatures ?? []).map((feature) => (
-              <div key={feature.name} className={styles.barRow}>
-                <div className={styles.barLabelRow}>
-                  <span>{feature.name}</span>
-                  <strong>{feature.importance.toFixed(2)}</strong>
+            {targetResult.globalFeatures.map((feature) => {
+              const maxImportance = targetResult.globalFeatures[0].importance;
+              return (
+                <div key={feature.name} className={styles.barRow}>
+                  <div className={styles.barLabelRow}>
+                    <span>{feature.name}</span>
+                    <strong>{feature.importance.toFixed(3)}</strong>
+                  </div>
+                  <div className={styles.barTrack}>
+                    <div className={styles.barFill} style={{ width: `${Math.max(8, (feature.importance / maxImportance) * 100)}%` }} />
+                  </div>
                 </div>
-                <div className={styles.barTrack}>
-                  <div className={styles.barFill} style={{ width: `${Math.max(8, feature.importance * 100)}%` }} />
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </ChartCard>
 
-        <ChartCard title="SHAP Summary" subtitle="Mock local explanation summary for the selected target">
+        <ChartCard title="SHAP Summary" subtitle={`Real local explanation for ${selectedBatteryId}, cycle ${local.cycle}`}>
           <div className={styles.summaryRows}>
             <div className={styles.summaryCard}>
-              <span>Base value</span>
-              <strong>{explanation?.baseValue.toFixed(2) ?? '0.00'}</strong>
+              <span>Base value (expected)</span>
+              <strong>{targetResult.baseValue.toFixed(2)}</strong>
             </div>
             <div className={styles.summaryCard}>
-              <span>Output value</span>
-              <strong>{explanation?.outputValue.toFixed(2) ?? '0.00'}</strong>
+              <span>Output value (actual prediction)</span>
+              <strong>{local.outputValue.toFixed(2)}</strong>
             </div>
             <div className={styles.summaryCard}>
               <span>Target</span>
@@ -162,18 +127,18 @@ export function ExplainabilityPage() {
       </section>
 
       <section className={styles.gridThree}>
-        <ChartCard title="Feature Selection" subtitle="Most influential features chosen for the explanation view">
+        <ChartCard title="Feature Selection" subtitle="Top positive-contribution features for this real prediction">
           <div className={styles.listBlock}>
-            {positiveFeatures.map((feature) => (
+            {positiveFeatures.length > 0 ? positiveFeatures.map((feature) => (
               <div key={feature.name} className={styles.selectionItem}>
                 <strong>{feature.name}</strong>
                 <span>+{(feature.value ?? 0).toFixed(2)}</span>
               </div>
-            ))}
+            )) : <p className={styles.muted}>No positive contributions for this prediction.</p>}
           </div>
         </ChartCard>
 
-        <ChartCard title="Local Prediction Explanation" subtitle="Positive and negative contribution directions">
+        <ChartCard title="Local Prediction Explanation" subtitle="Real positive and negative contribution directions">
           <div className={styles.contributionSection}>
             <div>
               <h4 className={styles.subTitle}>Positive contributions</h4>
@@ -182,7 +147,7 @@ export function ExplainabilityPage() {
                   <span>{feature.name}</span>
                   <strong>+{(feature.value ?? 0).toFixed(2)}</strong>
                 </div>
-              )) : <p className={styles.muted}>No positive contributions in the current mock set.</p>}
+              )) : <p className={styles.muted}>No positive contributions for this prediction.</p>}
             </div>
             <div>
               <h4 className={styles.subTitle}>Negative contributions</h4>
@@ -191,23 +156,23 @@ export function ExplainabilityPage() {
                   <span>{feature.name}</span>
                   <strong>{(feature.value ?? 0).toFixed(2)}</strong>
                 </div>
-              )) : <p className={styles.muted}>No negative contributions in the current mock set.</p>}
+              )) : <p className={styles.muted}>No negative contributions for this prediction.</p>}
             </div>
           </div>
         </ChartCard>
 
-        <ChartCard title="Feature Contribution Details" subtitle="Original, selected, and removed features">
+        <ChartCard title="Feature Contribution Details" subtitle="All real features involved in this explanation">
           <div className={styles.detailsBlock}>
             <div>
-              <h4 className={styles.subTitle}>Original Features</h4>
-              <ul>{(explanation?.globalFeatures ?? []).map((feature) => <li key={feature.name}>{feature.name}</li>)}</ul>
+              <h4 className={styles.subTitle}>Global top features</h4>
+              <ul>{targetResult.globalFeatures.map((feature) => <li key={feature.name}>{feature.name}</li>)}</ul>
             </div>
             <div>
-              <h4 className={styles.subTitle}>Selected Features</h4>
+              <h4 className={styles.subTitle}>Positive drivers (this prediction)</h4>
               <ul>{positiveFeatures.map((feature) => <li key={feature.name}>{feature.name}</li>)}</ul>
             </div>
             <div>
-              <h4 className={styles.subTitle}>Removed Features</h4>
+              <h4 className={styles.subTitle}>Negative drivers (this prediction)</h4>
               <ul>{negativeFeatures.map((feature) => <li key={feature.name}>{feature.name}</li>)}</ul>
             </div>
           </div>

@@ -1,0 +1,455 @@
+{
+  "soc": {
+    "globalFeatures": [
+      {
+        "name": "Voltage_measured_mean",
+        "importance": 5.6273
+      },
+      {
+        "name": "Voltage_measured_rms",
+        "importance": 5.3801
+      },
+      {
+        "name": "Voltage_measured_median",
+        "importance": 2.7606
+      },
+      {
+        "name": "Voltage_load_rms",
+        "importance": 2.0567
+      },
+      {
+        "name": "Temperature_measured_kurtosis",
+        "importance": 1.7819
+      }
+    ],
+    "baseValue": 63.744,
+    "perBattery": {
+      "B0005": {
+        "localFeatures": [
+          {
+            "name": "Voltage_measured_mean",
+            "importance": 7.5977,
+            "value": -7.5977
+          },
+          {
+            "name": "Voltage_measured_rms",
+            "importance": 7.585,
+            "value": -7.585
+          },
+          {
+            "name": "Voltage_measured_median",
+            "importance": 3.622,
+            "value": -3.622
+          },
+          {
+            "name": "Temperature_measured_kurtosis",
+            "importance": 2.6628,
+            "value": -2.6628
+          },
+          {
+            "name": "Voltage_load_rms",
+            "importance": 2.4726,
+            "value": -2.4726
+          }
+        ],
+        "outputValue": 19.931,
+        "cycle": 168
+      },
+      "B0006": {
+        "localFeatures": [
+          {
+            "name": "Voltage_measured_mean",
+            "importance": 7.5872,
+            "value": -7.5872
+          },
+          {
+            "name": "Voltage_measured_rms",
+            "importance": 7.585,
+            "value": -7.585
+          },
+          {
+            "name": "Voltage_measured_median",
+            "importance": 3.6016,
+            "value": -3.6016
+          },
+          {
+            "name": "Voltage_load_rms",
+            "importance": 2.4877,
+            "value": -2.4877
+          },
+          {
+            "name": "Temperature_measured_kurtosis",
+            "importance": 2.4106,
+            "value": -2.4106
+          }
+        ],
+        "outputValue": 20.094,
+        "cycle": 168
+      },
+      "B0007": {
+        "localFeatures": [
+          {
+            "name": "Voltage_measured_rms",
+            "importance": 7.3419,
+            "value": -7.3419
+          },
+          {
+            "name": "Voltage_measured_mean",
+            "importance": 7.2977,
+            "value": -7.2977
+          },
+          {
+            "name": "Voltage_measured_median",
+            "importance": 3.3122,
+            "value": -3.3122
+          },
+          {
+            "name": "Voltage_load_rms",
+            "importance": 1.9186,
+            "value": -1.9186
+          },
+          {
+            "name": "Voltage_measured_mean_rolling_mean_w5",
+            "importance": 1.7862,
+            "value": -1.7862
+          }
+        ],
+        "outputValue": 27.948,
+        "cycle": 168
+      },
+      "B0018": {
+        "localFeatures": [
+          {
+            "name": "Voltage_measured_mean",
+            "importance": 7.618,
+            "value": -7.618
+          },
+          {
+            "name": "Voltage_measured_rms",
+            "importance": 7.58,
+            "value": -7.58
+          },
+          {
+            "name": "Voltage_measured_median",
+            "importance": 3.486,
+            "value": -3.486
+          },
+          {
+            "name": "Temperature_measured_kurtosis",
+            "importance": 2.5531,
+            "value": -2.5531
+          },
+          {
+            "name": "Voltage_load_rms",
+            "importance": 2.5109,
+            "value": -2.5109
+          }
+        ],
+        "outputValue": 24.489,
+        "cycle": 132
+      }
+    }
+  },
+  "soh": {
+    "globalFeatures": [
+      {
+        "name": "Voltage_measured_median",
+        "importance": 0.7857
+      },
+      {
+        "name": "Time_max_rolling_mean_w5",
+        "importance": 0.7215
+      },
+      {
+        "name": "Voltage_load_mean",
+        "importance": 0.6329
+      },
+      {
+        "name": "Voltage_measured_mean",
+        "importance": 0.5319
+      },
+      {
+        "name": "Temperature_measured_kurtosis",
+        "importance": 0.5302
+      }
+    ],
+    "baseValue": 81.726,
+    "perBattery": {
+      "B0005": {
+        "localFeatures": [
+          {
+            "name": "Voltage_measured_median",
+            "importance": 0.9345,
+            "value": -0.9345
+          },
+          {
+            "name": "Time_max_rolling_mean_w5",
+            "importance": 0.8704,
+            "value": -0.8704
+          },
+          {
+            "name": "Voltage_load_mean",
+            "importance": 0.7914,
+            "value": -0.7914
+          },
+          {
+            "name": "Voltage_measured_mean",
+            "importance": 0.6243,
+            "value": -0.6243
+          },
+          {
+            "name": "Temperature_measured_kurtosis",
+            "importance": 0.6112,
+            "value": -0.6112
+          }
+        ],
+        "outputValue": 69.001,
+        "cycle": 168
+      },
+      "B0006": {
+        "localFeatures": [
+          {
+            "name": "Voltage_measured_median",
+            "importance": 0.9346,
+            "value": -0.9346
+          },
+          {
+            "name": "Time_max_rolling_mean_w5",
+            "importance": 0.8715,
+            "value": -0.8715
+          },
+          {
+            "name": "Voltage_load_mean",
+            "importance": 0.7918,
+            "value": -0.7918
+          },
+          {
+            "name": "Voltage_measured_mean",
+            "importance": 0.6231,
+            "value": -0.6231
+          },
+          {
+            "name": "Temperature_measured_kurtosis",
+            "importance": 0.6121,
+            "value": -0.6121
+          }
+        ],
+        "outputValue": 68.993,
+        "cycle": 168
+      },
+      "B0007": {
+        "localFeatures": [
+          {
+            "name": "Voltage_measured_median",
+            "importance": 0.7786,
+            "value": -0.7786
+          },
+          {
+            "name": "Time_max_rolling_mean_w5",
+            "importance": 0.7367,
+            "value": -0.7367
+          },
+          {
+            "name": "Voltage_measured_mean",
+            "importance": 0.5065,
+            "value": -0.5065
+          },
+          {
+            "name": "Temperature_measured_kurtosis",
+            "importance": 0.4884,
+            "value": -0.4884
+          },
+          {
+            "name": "Voltage_load_mean",
+            "importance": 0.4786,
+            "value": -0.4786
+          }
+        ],
+        "outputValue": 74.338,
+        "cycle": 168
+      },
+      "B0018": {
+        "localFeatures": [
+          {
+            "name": "Voltage_measured_median",
+            "importance": 0.938,
+            "value": -0.938
+          },
+          {
+            "name": "Time_max_rolling_mean_w5",
+            "importance": 0.8681,
+            "value": -0.8681
+          },
+          {
+            "name": "Voltage_load_mean",
+            "importance": 0.7921,
+            "value": -0.7921
+          },
+          {
+            "name": "Voltage_measured_mean",
+            "importance": 0.6233,
+            "value": -0.6233
+          },
+          {
+            "name": "Temperature_measured_kurtosis",
+            "importance": 0.6211,
+            "value": -0.6211
+          }
+        ],
+        "outputValue": 69.536,
+        "cycle": 132
+      }
+    }
+  },
+  "rul": {
+    "globalFeatures": [
+      {
+        "name": "Time_max_rolling_mean_w5",
+        "importance": 1.5826
+      },
+      {
+        "name": "Time_max",
+        "importance": 1.3483
+      },
+      {
+        "name": "Time_var",
+        "importance": 1.3391
+      },
+      {
+        "name": "Time_std",
+        "importance": 1.3267
+      },
+      {
+        "name": "Time_skew",
+        "importance": 1.1522
+      }
+    ],
+    "baseValue": 44.382,
+    "perBattery": {
+      "B0005": {
+        "localFeatures": [
+          {
+            "name": "Time_max_rolling_mean_w5",
+            "importance": 1.9027,
+            "value": -1.9027
+          },
+          {
+            "name": "Time_std",
+            "importance": 1.6484,
+            "value": -1.6484
+          },
+          {
+            "name": "Time_var",
+            "importance": 1.6368,
+            "value": -1.6368
+          },
+          {
+            "name": "Time_max",
+            "importance": 1.5838,
+            "value": -1.5838
+          },
+          {
+            "name": "Time_skew",
+            "importance": 1.326,
+            "value": -1.326
+          }
+        ],
+        "outputValue": 34.666,
+        "cycle": 168
+      },
+      "B0006": {
+        "localFeatures": [
+          {
+            "name": "Time_max_rolling_mean_w5",
+            "importance": 1.8962,
+            "value": -1.8962
+          },
+          {
+            "name": "Time_var",
+            "importance": 1.6609,
+            "value": -1.6609
+          },
+          {
+            "name": "Time_std",
+            "importance": 1.6408,
+            "value": -1.6408
+          },
+          {
+            "name": "Time_max",
+            "importance": 1.5868,
+            "value": -1.5868
+          },
+          {
+            "name": "Time_skew",
+            "importance": 1.3312,
+            "value": -1.3312
+          }
+        ],
+        "outputValue": 35.651,
+        "cycle": 168
+      },
+      "B0007": {
+        "localFeatures": [
+          {
+            "name": "Time_max_rolling_mean_w5",
+            "importance": 1.9102,
+            "value": -1.9102
+          },
+          {
+            "name": "Time_std",
+            "importance": 1.6424,
+            "value": -1.6424
+          },
+          {
+            "name": "Time_var",
+            "importance": 1.6323,
+            "value": -1.6323
+          },
+          {
+            "name": "Time_max",
+            "importance": 1.5909,
+            "value": -1.5909
+          },
+          {
+            "name": "Time_skew",
+            "importance": 1.3392,
+            "value": -1.3392
+          }
+        ],
+        "outputValue": 34.801,
+        "cycle": 168
+      },
+      "B0018": {
+        "localFeatures": [
+          {
+            "name": "Time_max_rolling_mean_w5",
+            "importance": 1.7843,
+            "value": -1.7843
+          },
+          {
+            "name": "Time_max",
+            "importance": 1.5225,
+            "value": -1.5225
+          },
+          {
+            "name": "Time_std",
+            "importance": 1.5197,
+            "value": -1.5197
+          },
+          {
+            "name": "Time_var",
+            "importance": 1.5084,
+            "value": -1.5084
+          },
+          {
+            "name": "Time_skew",
+            "importance": 1.1896,
+            "value": -1.1896
+          }
+        ],
+        "outputValue": 34.599,
+        "cycle": 132
+      }
+    }
+  }
+}
