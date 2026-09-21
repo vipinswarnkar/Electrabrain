@@ -89,7 +89,7 @@ export function ExplainabilityPage() {
       </section>
 
       <section className={styles.gridTwo}>
-        <ChartCard title="Global Feature Importance" subtitle="Real mean |SHAP value| across checkpoints from all 4 batteries">
+        <ChartCard title="Global Feature Importance" subtitle="Fixed across all batteries by design -- real mean |SHAP value| across all 4 batteries combined. Switch battery below to see per-battery LOCAL explanations instead.">
           <div className={styles.barList}>
             {targetResult.globalFeatures.map((feature) => {
               const maxImportance = targetResult.globalFeatures[0].importance;
