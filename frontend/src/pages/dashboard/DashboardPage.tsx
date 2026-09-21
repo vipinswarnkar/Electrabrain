@@ -18,7 +18,7 @@ import {
   RECENT_ALERTS,
   MODEL_PERFORMANCE,
   SYSTEM_OVERVIEW,
-} from '@/mocks/dashboard';
+} from '@/data/realDashboard';
 export default function DashboardPage() {
   return (
     <PageContainer>
